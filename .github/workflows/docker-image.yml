@@ -32,7 +32,7 @@ jobs:
           
       - name: Run Unit Tests
         run: |
-          pytest --junitxml=reports/results.xml --cov=.  # Customize test command if needed
+          pytest --junitxml=reports/results.xml --cov=bgrm-1
         continue-on-error: false  # Fail the workflow if tests fail
 
   build:
