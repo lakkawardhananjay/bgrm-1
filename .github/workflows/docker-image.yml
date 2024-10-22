@@ -97,7 +97,7 @@ jobs:
 
 
             # Run the new container
-            sudo docker run -d --name bgrm-1 -p 80:5100 $IMAGE_NAME:latest
+           sudo docker run -d --name bgrm-1 -p 80:5100 "$IMAGE_NAME":latest
           EOF
 
       - name: Confirm Successful Deployment
