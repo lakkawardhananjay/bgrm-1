@@ -90,14 +90,14 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             # Pull the latest Docker image
-            docker pull $IMAGE_NAME:latest
+            sudo docker pull $IMAGE_NAME:latest
                
             # Stop and remove the existing container if running
-            docker ps -q --filter "name=bgrm-1" | grep -q . && docker stop bgrm-1 && docker rm bgrm-1 || true
+            sudo docker ps -q --filter "name=bgrm-1" | grep -q . && docker stop bgrm-1 && docker rm bgrm-1 || true
 
 
             # Run the new container
-            docker run -d --name bgrm-1 -p 80:5100 $IMAGE_NAME:latest
+            sudo docker run -d --name bgrm-1 -p 80:5100 $IMAGE_NAME:latest
           EOF
 
       - name: Confirm Successful Deployment
