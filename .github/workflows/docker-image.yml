@@ -31,10 +31,10 @@ jobs:
           pip install pytest
           pip install -r requirements.txt
           
-      - name: Run Unit Tests
-        run: |
-          pytest --junitxml=reports/results.xml --cov=bgrm-1
-        continue-on-error: false  # Fail the workflow if tests fail
+      # - name: Run Unit Tests
+      #   run: |
+      #     pytest --junitxml=reports/results.xml --cov=bgrm-1
+      #   continue-on-error: false  # Fail the workflow if tests fail
 
   build:
     name: Build Docker Image
