@@ -93,10 +93,11 @@ jobs:
             docker pull $IMAGE_NAME:latest
 
             # Stop and remove the existing container if running
-            docker ps -q --filter name=bgrm-1 | grep -q . && docker stop your-app && docker rm bgrm-1 || true
+            docker ps -q --filter "name=bgrm-1" | grep -q . && docker stop bgrm-1 && docker rm bgrm-1 || true
+
 
             # Run the new container
-            docker run -d --name bgrm-1 -p 80:80 $IMAGE_NAME:latest
+            docker run -d --name bgrm-1 -p 80:5100 $IMAGE_NAME:latest
           EOF
 
       - name: Confirm Successful Deployment
