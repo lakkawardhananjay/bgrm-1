@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Run workflow on pushes to the main branch. Adjust if necessary.
+      - main  # Run workflow on pushes to the main branch. Adjust if necessary. 
   pull_request:
     branches:
       - main  # Run workflow on PRs targeting the main branch for pre-merge checks.
