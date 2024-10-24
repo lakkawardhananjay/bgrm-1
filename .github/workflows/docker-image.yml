@@ -88,12 +88,12 @@ jobs:
         env:
           IMAGE_NAME: $IMAGE_NAME
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
             # Pull the latest Docker image
             sudo docker pull $IMAGE_NAME:latest
                
             # Stop and remove the existing container if running
-            sudo docker ps -q --filter "name=dhananjaylakkawar/bgrm-1" | grep -q . && docker stop dhananjaylakkawar/bgrm-1 && docker rmdhananjaylakkawar/bgrm-1 || true
+            sudo docker ps -q --filter "name=dhananjaylakkawar/bgrm-1" | grep -q . && docker stop dhananjaylakkawar/bgrm-1 && docker rm dhananjaylakkawar/bgrm-1 || true
 
 
             # Run the new container
